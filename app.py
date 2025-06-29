@@ -45,7 +45,7 @@ def predict_next_word(model, tokenizer, text,max_sequence_len):
 st.title('Next word Prediction with LSTM Model')
 input_text = st.text_input('Enter the sequences of words',"To be or to be")
 
-st.button('Predict Next Word.')
+# st.button('Predict Next Word.')
 
 if (st.button('Predict Next Word')):
   max_sequence_len = model.input_shape[1]+1
