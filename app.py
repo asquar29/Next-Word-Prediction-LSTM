@@ -8,13 +8,17 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.models import load_model
 
 
-# load the LSTM model 
-model = load_model('next_word_lstm_model.h5')
+try:
+    model = load_model('next_word_lstm_model.h5')
+except Exception as e:
+    st.error(f"Failed to load model: {e}")
 
-# load the tokenizer
- 
-with open('tokenizer.pickle', 'rb') as handle:
-    tokenizer = pickle.load(handle)
+try:
+    with open('tokenizer.pickle', 'rb') as handle:
+        tokenizer = pickle.load(handle)
+except Exception as e:
+    st.error(f"Failed to load tokenizer: {e}")
+
 
 
 # function to predict the next word
